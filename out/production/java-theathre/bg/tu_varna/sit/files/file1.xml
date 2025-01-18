@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<halls>
+    <hall>
+        <hallName>Hall 1</hallName>
+        <numberOfSeats>100</numberOfSeats>
+        <performances>
+            <performance>
+                <date>2022-12-12</date>
+                <hall>Ivan</hall>
+                <name>Concert</name>
+            </performance>
+            <performance>
+                <date>2022-12-13</date>
+                <hall>Show</hall>
+                <name>Note for Show</name>
+            </performance>
+        </performances>
+    </hall>
+    <hall>
+        <hallName>Hall 2</hallName>
+        <numberOfSeats>200</numberOfSeats>
+        <performances>
+            <performance>
+                <date>2022-12-14</date>
+                <hall>Play</hall>
+                <name>Note for Play</name>
+            </performance>
+        </performances>
+    </hall>
+</halls>
