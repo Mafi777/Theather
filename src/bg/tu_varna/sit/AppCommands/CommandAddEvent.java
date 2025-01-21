@@ -8,14 +8,12 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class CommandAddEvent {
-
-    // Command
     public void addEvent(String[] inputArray, Storage storage) {
-        if (inputArray.length != 4) {
-            System.out.println("Add event command requires 3 arguments: date, hall and name");
+        if (inputArray.length < 4) {
+            System.out.println("Usage: addevent <date> <hall_number> <name>");
             return;
-
         }
+
         if (!isValidDateFormat(inputArray[1])) {
             System.out.println("Invalid date format. Please use dd-MM-yyyy");
             return;
@@ -23,33 +21,39 @@ public class CommandAddEvent {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         LocalDate date = LocalDate.parse(inputArray[1], formatter);
+        String hall = "Hall " + inputArray[2];
 
-        // Validate if a performance already exists in given hall on given date
-        if (!storage.CheckHallForFreeDate(inputArray[2], date)) {
-            System.out.println("Hall is occupied!");
+        StringBuilder nameBuilder = new StringBuilder();
+        for (int i = 3; i < inputArray.length; i++) {
+            nameBuilder.append(inputArray[i].replace("\"", ""));
+            if (i < inputArray.length - 1) {
+                nameBuilder.append(" ");
+            }
+        }
+        String name = nameBuilder.toString();
+
+        if (!storage.CheckHallForFreeDate(hall, date)) {
+            System.out.println("Hall is occupied for this date!");
+            return;
         }
 
-        // Made new performance with the given data from the user
-        Performance performance = new Performance(date, inputArray[2], inputArray[3]);
+        Performance performance = new Performance();
+        performance.setDate(date);
+        performance.setHall(hall);
+        performance.setName(name);
 
-        // Input the new performance in the given hall
-
-        storage.AddPerformanceToHall(performance, inputArray[2]);
-
-
+        storage.AddPerformanceToHall(performance, hall);
+        System.out.println("Successfully added event: " + name + " in " + hall + " on " + date);
     }
-    // inputArray - ["addEvent", "2021-12-12", "1", "Concert"]
 
-    // Helpers
+
     private boolean isValidDateFormat(String dateStr) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             LocalDate.parse(dateStr, formatter);
+            return true;
         } catch (DateTimeParseException e) {
             return false;
         }
-        return true;
     }
-
 }
-

@@ -2,18 +2,22 @@ package bg.tu_varna.sit.MainClasses;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.List;
+import java.util.ArrayList;
 
 @XmlRootElement(name = "halls")
 public class Halls {
-    private List<Hall> halls;
+    private ArrayList<Hall> halls;
+
+    public Halls() {
+        this.halls = new ArrayList<>();
+    }
 
     @XmlElement(name = "hall")
-    public List<Hall> getHalls() {
+    public ArrayList<Hall> getHalls() {
         return halls;
     }
 
-    public void setHalls(List<Hall> halls) {
+    public void setHalls(ArrayList<Hall> halls) {
         this.halls = halls;
     }
 }

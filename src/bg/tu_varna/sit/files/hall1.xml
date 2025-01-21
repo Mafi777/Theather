@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<halls>
+    <hall>
+        <hallName>Hall 1</hallName>
+        <numberOfSeats>100</numberOfSeats>
+        <performance>
+            <date>2024-02-01</date>
+            <hall>Hall 1</hall>
+            <name>Romeo and Juliet</name>
+        </performance>
+        <performance>
+            <date>2024-02-15</date>
+            <hall>Hall 1</hall>
+            <name>Hamlet</name>
+        </performance>
+    </hall>
+</halls>

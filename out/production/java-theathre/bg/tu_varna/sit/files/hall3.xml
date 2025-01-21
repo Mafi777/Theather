@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<halls>
+    <hall>
+        <hallName>Hall 3</hallName>
+        <numberOfSeats>150</numberOfSeats>
+        <performance>
+            <date>2024-02-05</date>
+            <hall>Hall 3</hall>
+            <name>Carmen</name>
+        </performance>
+        <performance>
+            <date>2024-02-20</date>
+            <hall>Hall 3</hall>
+            <name>La Traviata</name>
+        </performance>
+    </hall>
+</halls>

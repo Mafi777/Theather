@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<halls>
+    <hall>
+        <hallName>Hall 2</hallName>
+        <numberOfSeats>200</numberOfSeats>
+        <performance>
+            <date>2024-02-03</date>
+            <hall>Hall 2</hall>
+            <name>The Nutcracker</name>
+        </performance>
+        <performance>
+            <date>2024-02-10</date>
+            <hall>Hall 2</hall>
+            <name>Swan Lake</name>
+        </performance>
+    </hall>
+</halls>

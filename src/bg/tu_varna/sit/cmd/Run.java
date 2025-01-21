@@ -1,8 +1,7 @@
 package bg.tu_varna.sit.cmd;
 
-import bg.tu_varna.sit.AppCommands.CommandAddEvent;
-import bg.tu_varna.sit.FileCommands.CommandHelp;
-import bg.tu_varna.sit.FileCommands.CommandOpen;
+import bg.tu_varna.sit.AppCommands.*;
+import bg.tu_varna.sit.FileCommands.*;
 import bg.tu_varna.sit.MainClasses.Storage;
 
 import java.util.Scanner;
@@ -35,11 +34,66 @@ public class Run {
                     break;
 
 
-                case "addEvent":
-                    CommandAddEvent  commandAddEvent = new CommandAddEvent();
+                case "addevent":
+                    CommandAddEvent commandAddEvent = new CommandAddEvent();
                     commandAddEvent.addEvent(inputArray, storage);
                     break;
 
+                case "save":
+                    CommandSave commandSave = new CommandSave();
+                    commandSave.save(inputArray, storage);
+                    break;
+
+                case "saveas":
+                    CommandSaveAs commandSaveAs = new CommandSaveAs();
+                    commandSaveAs.saveAs(inputArray, storage);
+                    break;
+
+                case "close":
+                    CommandClose commandClose = new CommandClose();
+                    commandClose.close(storage);
+                    break;
+
+                case "freeseats":
+                    CommandFreeSeats commandFreeSeats = new CommandFreeSeats();
+                    commandFreeSeats.freeseats(inputArray, storage);
+                    break;
+
+                case "book":
+                    CommandBook commandBook = new CommandBook();
+                    commandBook.book(inputArray, storage);
+                    break;
+
+                case "unbook":
+                    CommandUnbook commandUnbook = new CommandUnbook();
+                    commandUnbook.unbook(inputArray, storage);
+                    break;
+
+                case "buy":
+                    CommandBuy commandBuy = new CommandBuy();
+                    commandBuy.buy(inputArray, storage);
+                    break;
+
+                case "bookings":
+                    CommandBookings commandBookings = new CommandBookings();
+                    commandBookings.showBookings(inputArray, storage);
+                    break;
+
+
+                case "check":
+                    CommandCheck commandCheck = new CommandCheck();
+                    commandCheck.check(inputArray, storage);
+                    break;
+
+                case "report":
+                        CommandReport commandReport = new CommandReport();
+                        commandReport.report(inputArray, storage);
+                        break;
+
+                case "statistics":
+                    CommandBonusStatistics commandStatistics = new CommandBonusStatistics();
+                    commandStatistics.showStatistics(storage);
+                    break;
                 default:
                     System.out.println("Invalid command. Type 'help' for available commands.");
                     break;

@@ -7,7 +7,6 @@ import bg.tu_varna.sit.MainClasses.Storage;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.ArrayList;
@@ -15,14 +14,25 @@ import java.util.ArrayList;
 public class CommandOpen {
     @SuppressWarnings("unchecked")
     public void OpenFile(String[] inputArray, Storage storage) {
-        try {
-            File file = new File(inputArray[1]);
-            JAXBContext jaxbContext = JAXBContext.newInstance(Halls.class);
+        if (inputArray.length != 2) {
+            System.out.println("Open command requires a file name");
+            return;
+        }
 
+        File file = new File("C:\\Users\\st\\OneDrive\\Desktop\\Git_repos\\java-theathre\\Theather\\src\\bg\\tu_varna\\sit\\files/" + inputArray[1]);
+        if (!file.exists()) {
+            System.out.println("File " + inputArray[1] + " does not exist in files directory");
+            return;
+        }
+
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(Halls.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
             Halls halls = (Halls) jaxbUnmarshaller.unmarshal(file);
 
-            // Access the data
+            storage.setHalls(new ArrayList<>(halls.getHalls()));
+            System.out.println("Successfully opened " + inputArray[1]);
+
             for (Hall hall : halls.getHalls()) {
                 System.out.println("Hall Name: " + hall.getHallName());
                 System.out.println("Number of Seats: " + hall.getNumberOfSeats());
@@ -35,7 +45,7 @@ public class CommandOpen {
             }
 
         } catch (JAXBException e) {
-            e.printStackTrace();
+            System.out.println("Error reading file: " + e.getMessage());
         }
     }
 }

@@ -3,28 +3,65 @@
     <hall>
         <hallName>Hall 1</hallName>
         <numberOfSeats>100</numberOfSeats>
-        <performances>
-            <performance>
-                <date>2022-12-12</date>
-                <hall>Ivan</hall>
-                <name>Concert</name>
-            </performance>
-            <performance>
-                <date>2022-12-13</date>
-                <hall>Show</hall>
-                <name>Note for Show</name>
-            </performance>
-        </performances>
-    </hall>
-    <hall>
-        <hallName>Hall 2</hallName>
-        <numberOfSeats>200</numberOfSeats>
-        <performances>
-            <performance>
-                <date>2022-12-14</date>
-                <hall>Play</hall>
-                <name>Note for Play</name>
-            </performance>
-        </performances>
+        <performance>
+            <date>2024-02-01</date>
+            <hall>Hall 1</hall>
+            <name>Romeo and Juliet</name>
+        </performance>
+        <performance>
+            <date>2024-02-15</date>
+            <hall>Hall 1</hall>
+            <name>Hamlet</name>
+            <ticket>
+                <row>3</row>
+                <seat>4</seat>
+                <date>2024-02-15</date>
+                <name>Hamlet</name>
+                <note></note>
+                <code>3-4-2024-02-15-59c72c52</code>
+                <status>BOUGHT</status>
+            </ticket>
+            <ticket>
+                <row>3</row>
+                <seat>2</seat>
+                <date>2024-02-15</date>
+                <name>Hamlet</name>
+                <note>yy</note>
+                <code>3-2-2024-02-15-46a9acce</code>
+                <status>BOOKED</status>
+            </ticket>
+            <ticket>
+                <row>3</row>
+                <seat>3</seat>
+                <date>2024-02-15</date>
+                <name>Hamlet</name>
+                <note>yy3</note>
+                <code>3-3-2024-02-15-13232283</code>
+                <status>BOOKED</status>
+            </ticket>
+            <ticket>
+                <row>7</row>
+                <seat>7</seat>
+                <date>2024-02-15</date>
+                <name>Hamlet</name>
+                <note>y4</note>
+                <code>7-7-2024-02-15-f430acf2</code>
+                <status>BOOKED</status>
+            </ticket>
+        </performance>
+        <performance>
+            <date>2024-02-11</date>
+            <hall>Hall 1</hall>
+            <name>MY</name>
+            <ticket>
+                <row>3</row>
+                <seat>3</seat>
+                <date>2024-02-11</date>
+                <name>MY</name>
+                <note>KK</note>
+                <code>3-3-2024-02-11-a0298d24</code>
+                <status>BOOKED</status>
+            </ticket>
+        </performance>
     </hall>
 </halls>

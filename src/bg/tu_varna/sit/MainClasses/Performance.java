@@ -1,31 +1,21 @@
 package bg.tu_varna.sit.MainClasses;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-@XmlRootElement(name = "performance")
 public class Performance {
     private LocalDate date;
     private String hall;
     private String name;
-    private ArrayList<Ticket> reservedTickets;
+    private ArrayList<Ticket> tickets;
 
     public Performance() {
-        this.reservedTickets = new ArrayList<>();  // Initialize reservedTickets
+        this.tickets = new ArrayList<>();
     }
 
-    public Performance(LocalDate date, String hall, String name) {
-        this.date = date;
-        this.hall = hall;
-        this.name = name;
-        this.reservedTickets = new ArrayList<>();  // Initialize reservedTickets
-    }
-
-    @XmlElement(name = "date")
+    @XmlElement
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public LocalDate getDate() {
         return date;
@@ -35,7 +25,7 @@ public class Performance {
         this.date = date;
     }
 
-    @XmlElement(name = "hall")
+    @XmlElement
     public String getHall() {
         return hall;
     }
@@ -44,7 +34,7 @@ public class Performance {
         this.hall = hall;
     }
 
-    @XmlElement(name = "name")
+    @XmlElement
     public String getName() {
         return name;
     }
@@ -53,8 +43,46 @@ public class Performance {
         this.name = name;
     }
 
+    @XmlElement(name = "ticket")
+    public ArrayList<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(ArrayList<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
     public void addTicket(Ticket ticket) {
-        this.reservedTickets.add(ticket);
+        if (this.tickets == null) {
+            this.tickets = new ArrayList<>();
+        }
+        this.tickets.add(ticket);
         System.out.println("Successfully added ticket!");
+    }
+    public boolean isSeatTaken(int row, int seat) {
+        if (tickets == null) return false;
+
+        for (Ticket ticket : tickets) {
+            if (ticket.getRow() == row && ticket.getSeat() == seat) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean removeTicket(int row, int seat) {
+        if (tickets == null) {
+            return false;
+        }
+
+        for (int i = 0; i < tickets.size(); i++) {
+            Ticket ticket = tickets.get(i);
+            if (ticket.getRow() == row && ticket.getSeat() == seat) {
+                tickets.remove(i);
+                System.out.println("Ticket removed successfully");
+                return true;
+            }
+        }
+        System.out.println("No ticket found for row " + row + " and seat " + seat);
+        return false;
     }
 }

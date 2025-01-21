@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<halls>
+    <hall>
+        <hallName>Hall 1</hallName>
+        <numberOfSeats>100</numberOfSeats>
+        <performance>
+            <date>2024-02-01</date>
+            <hall>Hall 1</hall>
+            <name>Mafi</name>
+            <ticket>
+                <code>3-4-2024-02-01-a2aa1fcb</code>
+                <date>2024-02-01</date>
+                <name>Mafi</name>
+                <note>Mafi2</note>
+                <row>3</row>
+                <seat>4</seat>
+            </ticket>
+            <ticket>
+                <code>5-4-2024-02-01-3e2a9b37</code>
+                <date>2024-02-01</date>
+                <name>Mafi</name>
+                <note>Mafi2</note>
+                <row>5</row>
+                <seat>4</seat>
+            </ticket>
+        </performance>
+    </hall>
+    <hall>
+        <hallName>Hall 2</hallName>
+        <numberOfSeats>200</numberOfSeats>
+    </hall>
+</halls>
